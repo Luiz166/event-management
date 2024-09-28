@@ -19,7 +19,7 @@ export async function POST(req){
             return new Response(JSON.stringify({ message: 'Senha incorreta'}), { status: 401 } );
         }
 
-        return new Response(JSON.stringify({ message: 'Logado com sucesso' }), { status: 200 });
+        return new Response(JSON.stringify({ message: 'Logado com sucesso', user }), { status: 200 });
     }catch(err){
         return new Response(JSON.stringify({ message: 'Erro ao logar', err }), { status: 500 });
     }
