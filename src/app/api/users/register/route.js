@@ -25,7 +25,8 @@ export async function POST(req){
                 password: hashedPassword,
             },
         })
+        return new Response(JSON.stringify({message: 'Usuário cadastrado', user}), { status: 201 })
     }catch(err){
-        return new Response(JSON.stringify({ message: 'Erro ao cadastrar usuário'}), { status: 500 } );
+        return new Response(JSON.stringify({ message: 'Erro ao cadastrar usuário', err}), { status: 500 } );
     }
 }
