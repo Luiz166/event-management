@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 
 export async function POST(req){
     try{
-        const { name, email, password } = await req.json();
+        const { username, email, password } = await req.json();
 
         //checar se o usuario existe
         const existingUser = await prisma.users.findUnique({
@@ -20,13 +20,14 @@ export async function POST(req){
         //criar novo usuário
         const user = await prisma.users.create({
             data: {
-                name,
+                username,
                 email,
                 password: hashedPassword,
             },
         })
         return new Response(JSON.stringify({message: 'Usuário cadastrado', user}), { status: 201 })
     }catch(err){
+        console.log(err);
         return new Response(JSON.stringify({ message: 'Erro ao cadastrar usuário', err}), { status: 500 } );
     }
 }
