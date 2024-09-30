@@ -24,14 +24,3 @@ body {
     text-wrap: balance;
   }
 }
-.background{
-  background-image: url('../public/wedding-image.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-}
-
-nav{
-  background-color: rgba(0, 0, 0, 0.5);
-}
