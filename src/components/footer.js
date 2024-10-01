@@ -3,7 +3,7 @@ import Link from "next/link"
 export default function Footer(){
     return(
         <div>
-            <footer className="flex p-2 justify-center space-x-32">
+            <footer className="flex p-2 justify-center space-x-32 text-white">
                 <div className="flex flex-col items-center">
                     <p>Eventify, te ajudando a se organizar melhor.</p>
                     <span>&copy; Copyright 2024, Eventify</span>
