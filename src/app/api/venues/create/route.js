@@ -2,7 +2,7 @@ import prisma from "@/lib/db";
 
 export async function POST(req){
     try{
-        const { name, address, capacity, user_id } = await req.Json();
+        const { name, address, capacity, user_id } = await req.json();
 
         const venue = await prisma.venues.create({
             data: {
@@ -15,6 +15,6 @@ export async function POST(req){
 
          return new Response(JSON.stringify({ message: 'Local criado com sucesso: ', venue }), { status: 201 })
     }catch (err){
-        return new Response(JSON.stringify({ message: 'Erro ao criar locar:', err }), { status: 500 })
+        return new Response(JSON.stringify({ message: 'Erro ao criar local:', err }), { status: 500 })
     }
 }
