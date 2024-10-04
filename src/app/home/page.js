@@ -34,12 +34,12 @@ export default function HomePage(){
             
             <div className="w-full flex flex-col items-center">
                 <div className="container p-2 rounded-lg">
-                    <h1 className="text-3xl text-center font-semibold">Olá, cliente</h1>
+                    <h1 className="text-3xl text-center font-semibold dark:text-white">Olá, cliente</h1>
 
                     <div>
-                        <span>Eventos próximos:</span>
+                        <span className="dark:text-white">Eventos próximos:</span>
                         <div>
-                            <span>Você não tem eventos, crie um <Link className="text-purple-400 underline" href={'/home/events/'}>agora</Link></span>
+                            <span className="dark:text-white">Você não tem eventos, crie um <Link className="text-purple-400 underline" href={'/home/events/'}>agora</Link></span>
                         </div>
                     </div>
                 </div>
