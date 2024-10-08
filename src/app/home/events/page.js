@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import ShowEvents from "@/components/ShowEvents";
 
 
 export default function Events() {
@@ -109,6 +110,9 @@ export default function Events() {
                     <h1 className="font-semibold text-3xl dark:text-white">
                         Seus eventos
                     </h1>
+                    <div className="flex flex-row justify-center items-center">
+                        <ShowEvents user_id={user_id}/>
+                    </div>
                 </div>
             </div>
         </div>
