@@ -12,7 +12,6 @@ model events {
   title       String   @db.VarChar(100)
   description String
   date        DateTime @db.Date
-  time        DateTime @db.Time(6)
   created_at  DateTime @db.Timestamp(6) @default(now())
   venue_id    Int?
   user_id     Int?
