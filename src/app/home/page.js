@@ -1,45 +1,30 @@
 'use client';
 import CheckSession from "@/components/checkSession";
-import { HoveredLink, Menu, MenuItem } from "@/components/ui/NavbarMenu";
-import Link from "next/link";
-import { useState } from "react";
+import ShowEvents from "@/components/ShowEvents";
+import { useSession } from "next-auth/react";
+import HomeNavbar from "@/components/HomeNavbar";
 
 export default function HomePage(){
-    const [active, setActive] = useState(null);
+    const { data: session, status } = useSession();
+    let user_id = null;
+    
+    if(status !== "loading"){
+        user_id = session.user.id;
+    }
     
     return(
         <CheckSession>
-
-        <div className="min-w-[100vw] min-h-[100vh] bg-black flex flex-col items-center ">
-            <Menu setActive={setActive}>
-                <MenuItem setActive={setActive} active={active} item={'Eventos'}>
-                    <div className="flex flex-col space-y-4 text-sm">
-                        <HoveredLink href="/home/events/">Seus eventos</HoveredLink>
-                        <HoveredLink href="/home/events/">Criar eventos</HoveredLink>
-                    </div>
-                </MenuItem>
-                <MenuItem setActive={setActive} active={active} item={'Locais'}>
-                    <div className="flex flex-col space-y-4 text-sm">
-                        <HoveredLink href="/home/venues/">Seus locais</HoveredLink>
-                        <HoveredLink href="/home/venues/">Criar locais</HoveredLink>
-                    </div>
-                </MenuItem>
-                <MenuItem setActive={setActive} active={active} item={'Perfil'}>
-                    <div className="flex flex-col space-y-4 text-sm">
-                        <HoveredLink href="/home/config/">Configurações</HoveredLink>
-                        <HoveredLink href="/home/signout/">Sair</HoveredLink>
-                    </div>
-                </MenuItem>
-            </Menu>
-            
+        <div>
+            <HomeNavbar/>
             <div className="w-full flex flex-col items-center">
                 <div className="container p-2 rounded-lg">
                     <h1 className="text-3xl text-center font-semibold dark:text-white">Olá, cliente</h1>
 
                     <div>
                         <span className="dark:text-white">Eventos próximos:</span>
+
                         <div>
-                            <span className="dark:text-white">Você não tem eventos, crie um <Link className="text-purple-400 underline" href={'/home/events/'}>agora</Link></span>
+                            <ShowEvents user_id={user_id}/>
                         </div>
                     </div>
                 </div>
