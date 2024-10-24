@@ -12,6 +12,7 @@ export default function ShowEvents({ user_id }){
         .then(res => {
             const data = res.data.event;
             setEvents(data)
+            console.log(events)
         })
         .catch(err => {
             console.log(err)
@@ -26,7 +27,10 @@ export default function ShowEvents({ user_id }){
             {/* <HoverEffect items={{ title: events.title, 
                 description: events.description,
                 link: `/home/events/${events.event_id}` }}/> */}
-            <HoverEffect items={events}/>
+            {events.length > 0 ?
+            <HoverEffect items={events}/> :
+            <span>Você não tem eventos criados</span>
+             }
         </div>
     )
 }
