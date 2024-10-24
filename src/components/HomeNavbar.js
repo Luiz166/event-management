@@ -14,6 +14,7 @@ export default function HomeNavbar(){
             <div className="flex flex-col space-y-4 text-sm">
                 <HoveredLink href="/home/events/">Seus eventos</HoveredLink>
                 <HoveredLink href="/home/events/">Criar eventos</HoveredLink>
+                <HoveredLink href="/home/events/all/">Comprar ingressos</HoveredLink>
             </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item={'Locais'}>
