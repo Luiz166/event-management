@@ -14,7 +14,7 @@ export default function HomePage(){
     
     return(
         <CheckSession>
-        <div>
+        <div className="min-w-[100vw] min-h-[100vh] bg-black flex items-center flex-col">
             <HomeNavbar/>
             <div className="w-full flex flex-col items-center">
                 <div className="container p-2 rounded-lg">
